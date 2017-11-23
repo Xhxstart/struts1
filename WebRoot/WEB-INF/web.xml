@@ -9,12 +9,17 @@
         <param-name>config</param-name>
         <param-value>/WEB-INF/struts-config.xml</param-value>
     </init-param>
+    <init-param>  
+  		<param-name>uploadpath</param-name>  
+  		<param-value>d:\BizPlusTemp\</param-value>  
+	</init-param>  
 </servlet>
 
 <servlet-mapping>
     <servlet-name>action</servlet-name>
     <url-pattern>*.do</url-pattern>
 </servlet-mapping>
+
  <welcome-file-list>
     <welcome-file>/page/login.jsp</welcome-file>
   </welcome-file-list>

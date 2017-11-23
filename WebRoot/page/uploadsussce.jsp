@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ page language="java" import="java.util.*"%> 
-<%@ page import="com.xhx.froms.UserForm"%>  
+<%@ page import="com.xhx.froms.CsvfileTorikomiForm"%>  
 <%  
-UserForm user = (UserForm)request.getAttribute("userForm");  
+CsvfileTorikomiForm fileForm = (CsvfileTorikomiForm)request.getAttribute("fileForm");  
  %>  
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>  
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>    
@@ -17,21 +17,11 @@ UserForm user = (UserForm)request.getAttribute("userForm");
   <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
   <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
   <script type="text/javascript">
-  $(document).ready(function(){
-  	$('#file').change(function(){
-	    $('#em').val($('#file').val());
-		});
-  });
   </script>
 <title>Insert title here</title>
 </head>
 <body> 
-   welcome!<span><%=user.getUsername() %></span>
-   
-   <form action="/struts_test/csvtorikomiAction.do" method="post" enctype="multipart/form-data">  
-   		<input type="file" id="file" name="filePath" accept=".csv"> <br> 		   		
-   		<input type="submit" value="csvファイル読み込む"> 
-   </form>
-   <input type="text" id="em" name="Path" > <br>
+   welcome!<span><%=fileForm.getFilePath().getFileName()%></span>
+      
   </body>
 </html>

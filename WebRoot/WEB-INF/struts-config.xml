@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Structs Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
-
 <struts-config>
     <!-- 配置表单 -->
     <form-beans>
         <!-- name是表单名字，可以随意写，但是建议取名规范：表单类名小写 -->
         <!-- type用于指定表单类的全路径 -->
-        <form-bean name="userForm" type="com.xhx.froms.UserForm"></form-bean>     
+        <form-bean name="userForm" type="com.xhx.froms.UserForm"></form-bean> 
+        <form-bean name="csvfileTorikomiForm" type="com.xhx.froms.CsvfileTorikomiForm"></form-bean>     
     </form-beans>
     <!-- 配置Action -->
     <action-mappings>
@@ -20,5 +20,12 @@
             <forward name="ok" path="/page/sussce.jsp"/>
             <forward name="error" path="/page/error.jsp"/>
         </action>
+        <action path="/csvtorikomiAction" name="csvfileTorikomiForm" type="com.xhx.actions.CsvtorikomiAction">
+            <!-- 这里配置跳转关系 -->
+            <!-- name表示结果名称，path表示转发到的页面地址 -->  
+            <forward name="ok" path="/page/uploadsussce.jsp"/> 
+            <forward name="error" path="/page/error.jsp"/>         
+        </action>
     </action-mappings>
+	<controller maxFileSize="4K"></controller>  
 </struts-config>
